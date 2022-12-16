@@ -14,10 +14,16 @@ You can install the development version of snpeffr like so:
 
 ``` r
 # if remotes not installed, then install the pkg
-if(!require(remotes)) install.packages("remotes") 
+if(!require(remotes)) install.packages("remotes")
 
+remotes::install_github("CDCgov/snpeffr")
+
+```
+Or if you don't have git set up:
+
+``` r 
 # install from zip location so no need for git
-remotes::install_url("{Once Public}")   
+remotes::install_url("https://github.com/CDCgov/snpeffr/archive/refs/heads/master.zip")   
 
 ```
 
