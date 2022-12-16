@@ -12,3 +12,4 @@ RUN install2.r --error --skipinstalled --repos ${CRAN}\
 
 RUN Rscript -e 'remotes::install_github("CDCgov/snpeffr")' 
 
+RUN Rscript -e 'file.copy(from = file.path(path.package("snpeffr"), "snpeffr.R"), to = getwd())'
