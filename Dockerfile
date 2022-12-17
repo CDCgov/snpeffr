@@ -2,7 +2,7 @@
 
 FROM rocker/r-ver:4.0.0
 
-ARG CRAN="https://cran.rstudio.com"
+ENV CRAN="https://cran.rstudio.com"
 
 RUN install2.r --error --skipinstalled --repos ${CRAN}\
      remotes \
@@ -12,8 +12,10 @@ RUN install2.r --error --skipinstalled --repos ${CRAN}\
 
 RUN Rscript -e 'remotes::install_github("CDCgov/snpeffr")' 
 
+# Moving R script to top level of container for easy cli use
 RUN Rscript -e 'library(snpeffr); file.copy(from = file.path(path.package("snpeffr"), "snpeffr.R"), to = getwd());'
 
-RUN echo "export PATH=$PATH:snpeffr.R" >> /root/.bashrc
+RUN chmod u+x snpeffr.R
 
-RUN chmod +x snpeffr.R
+# changing cmd from R to shell for using command line tool
+CMD ["bin/bash"]

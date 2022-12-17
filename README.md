@@ -89,6 +89,15 @@ To set it up to run from anywhere in your environment, add the path to your .bas
 ```
 export PATH=$PATH:path/to/snpeffr.R
 ```
+## Docker image
+
+There is a docker image to run snpeffr [here](https://github.com/CDCgov/snpeffr/pkgs/container/snpeffr), built off of rocker/r-ver. 
+It moves the command line script to the top level. To run inside docker use:
+
+```
+# and other associated commands
+./snpeffr.R -h
+```
 
 ## Next steps
 
