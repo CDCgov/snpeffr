@@ -78,7 +78,7 @@ snpeffr <- function(vcf_path,
     setnames(prsed, 1:15, ann_fields)
 
     if(ncol(prsed) > 15) {
-      extra_cols <- c("err_warn_info", paste0("V", (length(ann_fields) + 1):ncol(prsed)))
+      extra_cols <- paste0("V", (length(ann_fields) + 1):ncol(prsed))
       prsed[, err_warn_info := Reduce(function(...) paste(..., sep = "|"), .SD), .SDcols = extra_cols]
       prsed[, err_warn_info := gsub("|<NA>", "", err_warn_info, fixed = TRUE)]
     } else {
