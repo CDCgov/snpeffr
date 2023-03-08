@@ -4,6 +4,9 @@ FROM rocker/r-ver:4.0.0
 
 ENV CRAN="https://cran.rstudio.com"
 
+# re run to enforce environment variable
+RUN /rocker_scripts/setup_R.sh
+
 RUN install2.r --error --skipinstalled --repos ${CRAN}\
      remotes \
      data.table \
