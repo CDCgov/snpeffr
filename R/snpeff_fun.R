@@ -114,7 +114,8 @@ snpeffr <- function(vcf_path,
                      measure.vars = samps, variable.name = "sample_id")
 
     # get just the samples with mutations
-    vcf_long <- vcf_long[value == allele]
+    vcf_long <- vcf_long[value == allele | value == ""]
+    vcf_long[, allele := ifelse(value == "", "undefined", allele)]
     posits <- data.table(region = names(posits), POS = posits)
     vcf_long <- posits[vcf_long, on = "POS"]
 
