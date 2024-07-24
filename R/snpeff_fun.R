@@ -115,7 +115,10 @@ snpeffr <- function(vcf_path,
 
     # get just the samples with mutations
     vcf_long <- vcf_long[value == allele | value == ""]
-    vcf_long[, allele := ifelse(value == "", "undefined", allele)]
+    vcf_long[, allele := ifelse(value == "", "", allele)]
+    vcf_long[, HGVS.p := ifelse(value == "", "undetermined", HGVS.p)]
+    vcf_long[, note := ifelse(value == "", "For this run, MycoSNP was unable to determine the presence/absence of a mutation at this position.", "")]
+    vcf_long <- unique(vcf_long, by = colnames(vcf_long))
     posits <- data.table(region = names(posits), POS = posits)
     vcf_long <- posits[vcf_long, on = "POS"]
 
@@ -124,7 +127,7 @@ snpeffr <- function(vcf_path,
                      "mutation"))
 
     return(vcf_long[, c("sample_id", "snpeff_gene_name", "region", "position", "mutation",
-                        "ref_sequence", "sample_sequence")])
+                        "ref_sequence", "sample_sequence", "note")])
   }
 
 
