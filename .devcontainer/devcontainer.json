@@ -1,5 +1,5 @@
 {
-  "build": { "dockerfile": "../Dockerfile" },
+  "image": "ghcr.io/cdcgov/snpeffr:latest",
   "features": {
   }
 }
