@@ -1,0 +1,5 @@
+{
+  "image": "pull ghcr.io/cdcgov/snpeffr:latest",
+  "features": {
+  }
+}
