@@ -1,6 +1,6 @@
 # Base image https://hub.docker.com/r/rocker/verse/tags
 
-FROM rocker/r-ver:4.0.0
+FROM rocker/r-ver:4.4.1
 
 ENV CRAN="https://cran.rstudio.com"
 
