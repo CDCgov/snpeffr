@@ -1,5 +1,5 @@
 {
-  "image": "ghcr.io/cdcgov/snpeffr:latest",
+  "image": "ghcr.io/cdcgov/snpeffr:dev",
   "features": {
   }
 }
