@@ -17,7 +17,7 @@ jobs:
     steps:
     
       - name: Checkout repository
-        uses: actions/checkout@later
+        uses: actions/checkout@latest
 
       - name: Log in to the Container registry
         uses: docker/login-action@latest
