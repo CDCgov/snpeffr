@@ -17,7 +17,7 @@
 #'   \item{\code{sample_id}}{ID of the sample, the names of the annotation columns from snpeff}
 #'   \item{\code{snpeff_gene_name}}{name of the gene with the mutation}
 #'   \item{\code{region}}{name of the region of interest, i.e. from the named list of positions,
-#'                        defaults to fks1_hs1 and fks1_hs2 (fks1, hotspots 1 & 2)}
+#'                        defaults to fks1_hs1, fks1_hs2, and fks1_hs3 (fks1, hotspots 1, 2, & 3)}
 #'   \item{\code{position}}{the nucleotide position of the mutation}
 #'   \item{\code{mutation}}{the protein level mutation, annotated using (HGVS notation)(http://varnomen.hgvs.org/bg-material/simple/)}
 #'   \item{\code{ref_sequence}}{the nucleotide sequence for the reference}
@@ -29,7 +29,7 @@
 #' @import data.table
 #'
 snpeffr <- function(vcf_path,
-                    positions =  list(fks1_hs1 = 221638:221665, fks1_hs2 = 223782:223805),
+                    positions =  list(fks1_hs1 = 221637:221663, fks1_hs2 = 223782:223805, fks1_hs3 = 221805:221807),
                     genes = c("CAB11_002014"),
                     exclude_effects = "synonymous_variant") {
 
